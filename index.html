@@ -1,47 +1,393 @@
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f6f0ff; /* light purple background */
+    color: #2c2c2c;
+  }
+
+  header {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+  }
+
+  header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: #ffd700;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Internship Exchange Hub</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f6f0ff; /* light purple background */
+      color: #2c2c2c;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: white;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      flex-shrink: 0;
+      border-radius: 0 10px 10px 0;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    }
+
+    .sidebar h4 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #5a189a;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    /* Main Section */
+    .main {
+      flex: 1;
+      padding: 25px;
+      min-width: 320px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #aaa;
+      border-radius: 25px;
+      font-size: 15px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-bar input:focus {
+      border: 1px solid #6a11cb;
+      box-shadow: 0 0 4px rgba(106,17,203,0.3);
+    }
+
+    /* Internship Cards */
+    .card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .card-left {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .company-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: #f3e9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #6a11cb;
+    }
+
+    .card-details {
+      flex: 1;
+    }
+
+    .card-details h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #5a189a;
+    }
+
+    .card-details p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .tags {
+      margin-top: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #f3e9ff;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-right: 6px;
+      color: #6a11cb;
+      font-weight: 500;
+    }
+
+    .card-right {
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .card-right button {
+      background: #6a11cb;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+
+    .card-right button:hover {
+      background: #5011a2;
+    }
+
+    .rating {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #444;
+    }
+
+    .stars {
+      color: #f5b50a;
+      margin-right: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+      }
+      .card {
+        flex-direction: column;
+        text-align: left;
+      }
+      .card-right {
+        text-align: left;
+        margin-top: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h2>Internship Exchange Hub</h2>
     <nav>
-      <a href="index.html">Internship List</a>
-      <a href="post-internship.html">Post Internship</a>
+      <a href="#">Home</a>
+      <a href="#">Post Internship</a>
+      <a href="#">My Posts</a>
+      <a href="#">Referrals</a>
+      <a href="#">About</a>
     </nav>
   </header>
 
   <div class="container">
-    <!-- Sidebar -->
     <aside class="sidebar">
-      <h4>Domain</h4>
-      <label><input type="checkbox" value="Web Dev" class="filter"> Web Dev</label><br>
-      <label><input type="checkbox" value="Data Science" class="filter"> Data Science</label><br>
-      <label><input type="checkbox" value="AI" class="filter"> AI</label><br>
+      <h4>Filter by Domain</h4>
+      <label><input type="checkbox" class="filter-domain" value="Web Dev"> Web Dev</label><br>
+      <label><input type="checkbox" class="filter-domain" value="Data Science"> Data Science</label><br>
+      <label><input type="checkbox" class="filter-domain" value="AI"> AI</label><br>
 
-      <h4>Type</h4>
-      <label><input type="checkbox" value="Remote" class="filter"> Remote</label><br>
-      <label><input type="checkbox" value="On-site" class="filter"> On-site</label><br>
-      <label><input type="checkbox" value="Hybrid" class="filter"> Hybrid</label><br>
+      <h4>Filter by Work Type</h4>
+      <label><input type="radio" name="worktype" class="filter-type" value="Remote"> Remote</label><br>
+      <label><input type="radio" name="worktype" class="filter-type" value="On-site"> On-site</label><br>
+      <label><input type="radio" name="worktype" class="filter-type" value="Hybrid"> Hybrid</label><br>
 
-      <h4>Tags</h4>
-      <label><input type="checkbox" value="Referral" class="filter"> Referral</label><br>
-      <label><input type="checkbox" value="Paid" class="filter"> Paid</label><br>
+      <h4>Filter by Tags</h4>
+      <label><input type="checkbox" class="filter-tag" value="Referral"> Referral Available</label><br>
+      <label><input type="checkbox" class="filter-tag" value="Paid"> Paid</label>
     </aside>
 
-    <!-- Main Section -->
     <main class="main">
       <div class="search-bar">
-        <input type="text" id="search" placeholder="Search internships...">
+        <input type="text" id="search" placeholder="Search by keyword, company, or tag">
       </div>
 
-      <!-- Internship Cards will load here -->
+      <!-- Internship Cards -->
+      <div class="card" data-domain="Web Dev" data-type="Remote" data-tags="Referral Paid">
+        <div class="card-left">
+          <div class="company-logo">TS</div>
+          <div class="card-details">
+            <h4>TechStart</h4>
+            <p>Frontend Developer Intern</p>
+            <p><b>Stipend:</b> ₹20,000/month • <b>Location:</b> Remote</p>
+            <div class="tags">
+              <span class="tag">Referral</span>
+              <span class="tag">Paid</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-right">
+          <button>Request Referral</button>
+          <div class="rating"><span class="stars">★★★★★</span> 3d</div>
+        </div>
+      </div>
+
+      <div class="card" data-domain="Data Science" data-type="On-site" data-tags="Paid">
+        <div class="card-left">
+          <div class="company-logo">AC</div>
+          <div class="card-details">
+            <h4>Analytics Corp</h4>
+            <p>Data Science Intern</p>
+            <p><b>Stipend:</b> ₹15,000/month • <b>Location:</b> Bangalore</p>
+            <div class="tags">
+              <span class="tag">Paid</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-right">
+          <button>Request Referral</button>
+          <div class="rating"><span class="stars">★★★★☆</span> 5d</div>
+        </div>
+      </div>
+
+      <div class="card" data-domain="AI" data-type="Hybrid" data-tags="Referral">
+        <div class="card-left">
+          <div class="company-logo">AI</div>
+          <div class="card-details">
+            <h4>AI Labs</h4>
+            <p>ML Engineer Intern</p>
+            <p><b>Stipend:</b> ₹25,000/month • <b>Location:</b> Pune</p>
+            <div class="tags">
+              <span class="tag">Referral</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-right">
+          <button>Request Referral</button>
+          <div class="rating"><span class="stars">★★★★★</span> 7d</div>
+        </div>
+      </div>
     </main>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const searchInput = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
+    const domainFilters = document.querySelectorAll('.filter-domain');
+    const typeFilters = document.querySelectorAll('.filter-type');
+    const tagFilters = document.querySelectorAll('.filter-tag');
+
+    function filterCards() {
+      const searchText = searchInput.value.toLowerCase();
+      const selectedDomains = Array.from(domainFilters).filter(cb => cb.checked).map(cb => cb.value);
+      const selectedType = Array.from(typeFilters).find(rb => rb.checked)?.value;
+      const selectedTags = Array.from(tagFilters).filter(cb => cb.checked).map(cb => cb.value);
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const domain = card.dataset.domain;
+        const type = card.dataset.type;
+        const tags = card.dataset.tags.split(" ");
+
+        let visible = true;
+
+        if (searchText && !text.includes(searchText)) visible = false;
+        if (selectedDomains.length > 0 && !selectedDomains.includes(domain)) visible = false;
+        if (selectedType && type !== selectedType) visible = false;
+        if (selectedTags.length > 0 && !selectedTags.every(tag => tags.includes(tag))) visible = false;
+
+        card.style.display = visible ? "flex" : "none";
+      });
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    domainFilters.forEach(cb => cb.addEventListener('change', filterCards));
+    typeFilters.forEach(rb => rb.addEventListener('change', filterCards));
+    tagFilters.forEach(cb => cb.addEventListener('change', filterCards));
+  </script>
 </body>
 </html>
+
