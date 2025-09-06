@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internship Exchange Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Internship Exchange Hub</h2>
+    <nav>
+      <a href="index.html">Internship List</a>
+      <a href="post-internship.html">Post Internship</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h4>Domain</h4>
+      <label><input type="checkbox" value="Web Dev" class="filter"> Web Dev</label><br>
+      <label><input type="checkbox" value="Data Science" class="filter"> Data Science</label><br>
+      <label><input type="checkbox" value="AI" class="filter"> AI</label><br>
+
+      <h4>Type</h4>
+      <label><input type="checkbox" value="Remote" class="filter"> Remote</label><br>
+      <label><input type="checkbox" value="On-site" class="filter"> On-site</label><br>
+      <label><input type="checkbox" value="Hybrid" class="filter"> Hybrid</label><br>
+
+      <h4>Tags</h4>
+      <label><input type="checkbox" value="Referral" class="filter"> Referral</label><br>
+      <label><input type="checkbox" value="Paid" class="filter"> Paid</label><br>
+    </aside>
+
+    <!-- Main Section -->
+    <main class="main">
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="Search internships...">
+      </div>
+
+      <!-- Internship Cards will load here -->
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

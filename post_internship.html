@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post Internship</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Post Internship</h2>
+    <nav>
+      <a href="index.html">Internship List</a>
+      <a href="post-internship.html">Post Internship</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <form class="post-form" id="internshipForm">
+      <label>Company Name</label>
+      <input type="text" id="company" required>
+
+      <label>Role / Position</label>
+      <input type="text" id="role" required>
+
+      <label>Stipend</label>
+      <input type="text" id="stipend">
+
+      <label>Location</label>
+      <select id="location">
+        <option>Remote</option>
+        <option>On-site</option>
+        <option>Hybrid</option>
+      </select>
+
+      <label>Tags</label>
+      <label><input type="checkbox" id="referral"> Referral</label>
+      <label><input type="checkbox" id="paid"> Paid</label>
+
+      <label>Description</label>
+      <textarea rows="5" id="description"></textarea>
+
+      <button type="submit">Post Internship</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
