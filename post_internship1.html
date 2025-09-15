@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Exchange Hub</title>
+  <style>
+    /* ========== Reset & Base ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f2e9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+    /* ========== Header ========== */
+    header {
+      background: linear-gradient(90deg, #6a11cb, #f6f0ff);
+      padding: 15px 25px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+      color: white;
+    }
+    header h2 { font-size: 22px; font-weight: bold; }
+    nav a {
+      margin: 0 12px; text-decoration: none; color: #fff; font-weight: 500;
+    }
+    nav a:hover { color: #ffd700; }
+    /* ========== Form Section ========== */
+    .main {
+      max-width: 900px; margin: 30px auto; padding: 25px;
+      background: #fff; border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+    .main h2 { margin-bottom: 20px; text-align: center; color: #5a189a; font-size: 24px; }
+    .post-form { display: flex; flex-direction: column; }
+    .post-form label { margin-top: 15px; font-weight: bold; font-size: 14px; color: #444; }
+    .post-form input, .post-form select, .post-form textarea {
+      margin-top: 6px; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 14px;
+    }
+    .post-form input:focus, .post-form select:focus, .post-form textarea:focus {
+      border: 1px solid #6a11cb; box-shadow: 0 0 6px rgba(106,17,203,0.3); outline: none;
+    }
+    .checkbox-group { margin-top: 10px; display: flex; gap: 20px; }
+    .checkbox-group label { font-weight: normal; font-size: 14px; }
+    .post-form button {
+      margin-top: 20px; padding: 12px; border: none; background: #6a11cb; color: #fff;
+      font-size: 15px; font-weight: bold; border-radius: 25px; cursor: pointer;
+    }
+    .post-form button:hover { background: #5011a2; }
+    /* ========== Internship Listings ========== */
+    .listings-container { max-width: 1000px; margin: 30px auto; padding: 10px; }
+    .internship-card {
+      background: #fff; border-radius: 16px; padding: 20px; margin: 20px 0;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;
+    }
+    .internship-details { flex: 1; }
+    .internship-details h3 { color: #5a189a; font-size: 18px; margin-bottom: 6px; }
+    .internship-details p { font-size: 14px; margin: 2px 0; }
+    .tags { margin: 8px 0; }
+    .tag {
+      display: inline-block; padding: 4px 10px; margin: 3px; border-radius: 20px;
+      font-size: 12px; font-weight: bold; color: white;
+    }
+    .tag-verified { background: #38b000; }
+    .tag-remote { background: #7209b7; }
+    .tag-startup { background: #ff6d00; }
+    .tag-office { background: #4361ee; }
+    .tag-mnc { background: #b5179e; }
+    .internship-actions { text-align: right; }
+    .internship-actions button {
+      padding: 8px 16px; border: none; border-radius: 25px; font-size: 14px; font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-apply { background: #6a11cb; color: #fff; }
+    .btn-apply:hover { background: #5011a2; }
+    .btn-applied { background: #ccc; color: #333; cursor: not-allowed; }
+    .card-footer { margin-top: 10px; font-size: 13px; color: #666; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Internship Exchange Hub</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Post Internship</a>
+      <a href="#">My Posts</a>
+      <a href="#">Referrals</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- Post Internship Form -->
+  <main class="main">
+    <h2>Post an Internship</h2>
+    <form class="post-form" id="internshipForm">
+      <label>Company Name</label>
+      <input type="text" id="company" placeholder="Enter company name" required>
+
+      <label>Role / Position</label>
+      <input type="text" id="role" placeholder="Enter role or position" required>
+
+      <label>Stipend</label>
+      <input type="text" id="stipend" placeholder="e.g., ₹20,000/month">
+
+      <label>Location</label>
+      <select id="location">
+        <option>Remote</option>
+        <option>On-site</option>
+        <option>Hybrid</option>
+      </select>
+
+      <label>Tags</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="verified"> Verified</label>
+        <label><input type="checkbox" id="remote"> Remote</label>
+        <label><input type="checkbox" id="startup"> Startup</label>
+        <label><input type="checkbox" id="mnc"> MNC</label>
+      </div>
+
+      <label>Description</label>
+      <textarea rows="5" id="description" placeholder="Enter internship details"></textarea>
+
+      <button type="submit">Post Internship</button>
+    </form>
+  </main>
+
+  <!-- Internship Listings -->
+  <section class="listings-container" id="listings">
+    <h2>Available Internships</h2>
+
+    <!-- Example Card -->
+    <div class="internship-card">
+      <div class="internship-details">
+        <h3>Frontend Developer Intern</h3>
+        <p>TechStart</p>
+        <div class="tags">
+          <span class="tag tag-verified">Verified</span>
+          <span class="tag tag-remote">Remote</span>
+          <span class="tag tag-startup">Startup</span>
+        </div>
+        <p><strong>Duration:</strong> 3 months</p>
+        <p><strong>Stipend:</strong> ₹20,000/month</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p class="card-footer">Closes in 12 days • 42 upvotes</p>
+      </div>
+      <div class="internship-actions">
+        <button class="btn-apply" onclick="applyNow(this)">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Apply Button Logic
+    function applyNow(button) {
+      button.textContent = "Applied";
+      button.classList.remove("btn-apply");
+      button.classList.add("btn-applied");
+      button.disabled = true;
+    }
+
+    // Handle Form Submission
+    document.getElementById("internshipForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Collect data
+      const company = document.getElementById("company").value;
+      const role = document.getElementById("role").value;
+      const stipend = document.getElementById("stipend").value;
+      const location = document.getElementById("location").value;
+      const description = document.getElementById("description").value;
+
+      // Build tags
+      let tagsHTML = "";
+      if (document.getElementById("verified").checked) tagsHTML += '<span class="tag tag-verified">Verified</span>';
+      if (document.getElementById("remote").checked) tagsHTML += '<span class="tag tag-remote">Remote</span>';
+      if (document.getElementById("startup").checked) tagsHTML += '<span class="tag tag-startup">Startup</span>';
+      if (document.getElementById("mnc").checked) tagsHTML += '<span class="tag tag-mnc">MNC</span>';
+
+      // Create card
+      const card = document.createElement("div");
+      card.classList.add("internship-card");
+      card.innerHTML = `
+        <div class="internship-details">
+          <h3>${role}</h3>
+          <p>${company}</p>
+          <div class="tags">${tagsHTML}</div>
+          <p><strong>Stipend:</strong> ${stipend || "N/A"}</p>
+          <p><strong>Location:</strong> ${location}</p>
+          <p>${description}</p>
+          <p class="card-footer">Just posted • 0 upvotes</p>
+        </div>
+        <div class="internship-actions">
+          <button class="btn-apply" onclick="applyNow(this)">Apply Now</button>
+        </div>
+      `;
+
+      // Append to listings
+      document.getElementById("listings").appendChild(card);
+
+      // Reset form
+      this.reset();
+    });
+  </script>
+</body>
+</html>
