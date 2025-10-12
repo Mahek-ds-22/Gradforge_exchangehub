@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GradForge – Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="GradForge Home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4zM7 8l5 3 5-3"/></svg>
+        <span class="brand-text">GradForge</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="internships.html"><i class="fas fa-briefcase"></i> Internships</a></li>
+          <li><a href="consultation.html"><i class="fas fa-comments"></i> Consultation</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="pricing.html"><i class="fas fa-credit-card"></i> Pricing</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-ghost" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+  </header>
+
+  <!-- Login Section -->
+  <section class="login-section">
+    <div class="login-container">
+      <h1>Login to GradForge</h1>
+      <form class="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <button type="submit" class="btn login-btn">Login</button>
+      </form>
+
+      <p class="alt-link">
+        Don't have an account? <a href="#">Sign Up</a>
+      </p>
+      <p class="alt-link">
+        <a href="#">Forgot Password?</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> GradForge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

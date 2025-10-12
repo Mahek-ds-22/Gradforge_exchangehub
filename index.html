@@ -1,392 +1,138 @@
-<style>
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f6f0ff; /* light purple background */
-    color: #2c2c2c;
-  }
-
-  header {
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    color: white;
-  }
-
-  header h2 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  nav a:hover {
-    color: #ffd700;
-  }
-
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Internship Exchange Hub</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f6f0ff; /* light purple background */
-      color: #2c2c2c;
-    }
-
-    header {
-      background: linear-gradient(90deg, #6a11cb, #f6f0ff);
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      color: white;
-    }
-
-    header h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #ffd700;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 230px;
-      background: #fff;
-      border-right: 1px solid #ddd;
-      padding: 20px;
-      flex-shrink: 0;
-      border-radius: 0 10px 10px 0;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-    }
-
-    .sidebar h4 {
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #5a189a;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 5px;
-    }
-
-    /* Main Section */
-    .main {
-      flex: 1;
-      padding: 25px;
-      min-width: 320px;
-    }
-
-    .search-bar {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #aaa;
-      border-radius: 25px;
-      font-size: 15px;
-      outline: none;
-      transition: border 0.2s;
-    }
-
-    .search-bar input:focus {
-      border: 1px solid #6a11cb;
-      box-shadow: 0 0 4px rgba(106,17,203,0.3);
-    }
-
-    /* Internship Cards */
-    .card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 18px;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
-
-    .card-left {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-      flex: 1;
-    }
-
-    .company-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      background: #f3e9ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: #6a11cb;
-    }
-
-    .card-details {
-      flex: 1;
-    }
-
-    .card-details h4 {
-      margin: 0;
-      font-size: 18px;
-      color: #5a189a;
-    }
-
-    .card-details p {
-      margin: 5px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .tags {
-      margin-top: 8px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 4px 10px;
-      background: #f3e9ff;
-      border-radius: 12px;
-      font-size: 12px;
-      margin-right: 6px;
-      color: #6a11cb;
-      font-weight: 500;
-    }
-
-    .card-right {
-      text-align: right;
-      min-width: 120px;
-    }
-
-    .card-right button {
-      background: #6a11cb;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      transition: background 0.2s;
-    }
-
-    .card-right button:hover {
-      background: #5011a2;
-    }
-
-    .rating {
-      font-size: 12px;
-      margin-top: 5px;
-      color: #444;
-    }
-
-    .stars {
-      color: #f5b50a;
-      margin-right: 5px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        border-radius: 0;
-      }
-      .card {
-        flex-direction: column;
-        text-align: left;
-      }
-      .card-right {
-        text-align: left;
-        margin-top: 12px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GradForge — Launch Your Career</title>
+  <meta name="description" content="GradForge: Internships, Projects, and Micro Consultation — all in one place." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h2>Internship Exchange Hub</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="post_internship.html">Post Internship</a>
-      <a href="#">My Posts</a>
-      <a href="#">Referrals</a>
-      <a href="#">About</a>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Navbar -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="GradForge Home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4zM7 8l5 3 5-3"/></svg>
+        <span class="brand-text">GradForge</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="internships.html"><i class="fas fa-briefcase"></i> Internships</a></li>
+          <li><a href="consultation.html"><i class="fas fa-comments"></i> Consultation</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="pricing.html"><i class="fas fa-credit-card"></i> Pricing</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-ghost" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
   </header>
 
-  <div class="container">
-    <aside class="sidebar">
-      <h4>Filter by Domain</h4>
-      <label><input type="checkbox" class="filter-domain" value="Web Dev"> Web Dev</label><br>
-      <label><input type="checkbox" class="filter-domain" value="Data Science"> Data Science</label><br>
-      <label><input type="checkbox" class="filter-domain" value="AI"> AI</label><br>
-
-      <h4>Filter by Work Type</h4>
-      <label><input type="radio" name="worktype" class="filter-type" value="Remote"> Remote</label><br>
-      <label><input type="radio" name="worktype" class="filter-type" value="On-site"> On-site</label><br>
-      <label><input type="radio" name="worktype" class="filter-type" value="Hybrid"> Hybrid</label><br>
-
-      <h4>Filter by Tags</h4>
-      <label><input type="checkbox" class="filter-tag" value="Referral"> Referral Available</label><br>
-      <label><input type="checkbox" class="filter-tag" value="Paid"> Paid</label>
-    </aside>
-
-    <main class="main">
-      <div class="search-bar">
-        <input type="text" id="search" placeholder="Search by keyword, company, or tag">
-      </div>
-
-      <!-- Internship Cards -->
-      <div class="card" data-domain="Web Dev" data-type="Remote" data-tags="Referral Paid">
-        <div class="card-left">
-          <div class="company-logo">TS</div>
-          <div class="card-details">
-            <h4>TechStart</h4>
-            <p>Frontend Developer Intern</p>
-            <p><b>Stipend:</b> ₹20,000/month • <b>Location:</b> Remote</p>
-            <div class="tags">
-              <span class="tag">Referral</span>
-              <span class="tag">Paid</span>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Find Internships. Ship Projects. Book Mentors.</h1>
+          <p>All in one purple-powered platform. Discover verified internships, showcase your builds, and get micro consultations from industry mentors.</p>
+          <div class="hero-actions">
+            <a class="btn" href="internships.html">Explore Internships</a>
+            <a class="btn btn-outline" href="projects.html">Browse Projects</a>
+            <a class="btn btn-ghost" href="consultation.html">Book a Mentor</a>
+          </div>
+        </div>
+        <div class="hero-stats-container">
+          <div class="hero-card" aria-hidden="true">
+            <h3 class="stats-title">Live Statistics</h3>
+            <div class="hero-stat">
+              <span class="stat-value" data-stat="internships">128</span>
+              <span class="stat-heading">Active Internships</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-value" data-stat="projects">742</span>
+              <span class="stat-heading">Projects Shared</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-value" data-stat="mentors">36</span>
+              <span class="stat-heading">Mentors Online</span>
+            </div>
+            <div class="stats-footer">
+              <span class="update-indicator">● Live</span>
             </div>
           </div>
         </div>
-        <div class="card-right">
-          <button>Request Referral</button>
-          <div class="rating"><span class="stars">★★★★★</span> 3d</div>
-        </div>
+      </div>
+    </section>
+
+    <!-- Three pillars -->
+    <section class="pillars container">
+      <div class="service-wrapper">
+        <article class="pillar-card">
+          <h2>Internship Hub</h2>
+          <p>Save, upvote, and track deadlines. See verification badges, stipend ranges, and referrer availability.</p>
+          <ul class="feature-list">
+            <li>Bookmark & Upvote</li>
+            <li>Expiry Timers & Reminders</li>
+            <li>Verified & Tagged posts</li>
+          </ul>
+          <a class="btn" href="internships.html" aria-label="Go to Internship Hub">Get Internships</a>
+        </article>
       </div>
 
-      <div class="card" data-domain="Data Science" data-type="On-site" data-tags="Paid">
-        <div class="card-left">
-          <div class="company-logo">AC</div>
-          <div class="card-details">
-            <h4>Analytics Corp</h4>
-            <p>Data Science Intern</p>
-            <p><b>Stipend:</b> ₹15,000/month • <b>Location:</b> Bangalore</p>
-            <div class="tags">
-              <span class="tag">Paid</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-right">
-          <button>Request Referral</button>
-          <div class="rating"><span class="stars">★★★★☆</span> 5d</div>
-        </div>
+      <div class="service-wrapper">
+        <article class="pillar-card">
+          <h2>Profile Center</h2>
+          <p>Build your professional profile, showcase achievements, track progress, and connect with peers and mentors.</p>
+          <ul class="feature-list">
+            <li>Professional Portfolio</li>
+            <li>Achievement Tracking</li>
+            <li>Skills & Certifications</li>
+          </ul>
+          <a class="btn btn-outline" href="profile.html" aria-label="Go to Profile Center">View Profile</a>
+        </article>
       </div>
 
-      <div class="card" data-domain="AI" data-type="Hybrid" data-tags="Referral">
-        <div class="card-left">
-          <div class="company-logo">AI</div>
-          <div class="card-details">
-            <h4>AI Labs</h4>
-            <p>ML Engineer Intern</p>
-            <p><b>Stipend:</b> ₹25,000/month • <b>Location:</b> Pune</p>
-            <div class="tags">
-              <span class="tag">Referral</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-right">
-          <button>Request Referral</button>
-          <div class="rating"><span class="stars">★★★★★</span> 7d</div>
-        </div>
+      <div class="service-wrapper">
+        <article class="pillar-card">
+          <h2>Micro Consultation</h2>
+          <p>Book focused 30–60 minute sessions with rated mentors. Instant or request-to-book, with reminders.</p>
+          <ul class="feature-list">
+            <li>Recurring mentor slots</li>
+            <li>Pre-session question form</li>
+            <li>Ratings breakdown & reports</li>
+          </ul>
+          <a class="btn btn-ghost" href="consultation.html" aria-label="Go to Micro Consultation">Book a Session</a>
+        </article>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <script>
-    const searchInput = document.getElementById('search');
-    const cards = document.querySelectorAll('.card');
-    const domainFilters = document.querySelectorAll('.filter-domain');
-    const typeFilters = document.querySelectorAll('.filter-type');
-    const tagFilters = document.querySelectorAll('.filter-tag');
+    <!-- CTA band -->
+    <section class="cta-band" aria-label="Join as mentor">
+      <div class="container cta-inner">
+        <h2>Are you a mentor?</h2>
+        <p>Share your expertise and earn by hosting micro consultations on GradForge.</p>
+        <br>
+        <a class="btn" href="consultation.html#be-a-mentor">Be a Mentor</a>
+      </div>
+    </section>
+  </main>
+  <br>
+  <br>
 
-    function filterCards() {
-      const searchText = searchInput.value.toLowerCase();
-      const selectedDomains = Array.from(domainFilters).filter(cb => cb.checked).map(cb => cb.value);
-      const selectedType = Array.from(typeFilters).find(rb => rb.checked)?.value;
-      const selectedTags = Array.from(tagFilters).filter(cb => cb.checked).map(cb => cb.value);
-
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        const domain = card.dataset.domain;
-        const type = card.dataset.type;
-        const tags = card.dataset.tags.split(" ");
-
-        let visible = true;
-
-        if (searchText && !text.includes(searchText)) visible = false;
-        if (selectedDomains.length > 0 && !selectedDomains.includes(domain)) visible = false;
-        if (selectedType && type !== selectedType) visible = false;
-        if (selectedTags.length > 0 && !selectedTags.every(tag => tags.includes(tag))) visible = false;
-
-        card.style.display = visible ? "flex" : "none";
-      });
-    }
-
-    searchInput.addEventListener('input', filterCards);
-    domainFilters.forEach(cb => cb.addEventListener('change', filterCards));
-    typeFilters.forEach(rb => rb.addEventListener('change', filterCards));
-    tagFilters.forEach(cb => cb.addEventListener('change', filterCards));
-  </script>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> GradForge — Empowering Careers</p>
+      <nav aria-label="Footer">
+        <a href="pricing.html">Pricing</a>
+        <a href="login.html">Login</a>
+        <a href="#" aria-disabled="true">Privacy</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

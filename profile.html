@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - GradForge</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+ <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="GradForge Home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4zM7 8l5 3 5-3"/></svg>
+        <span class="brand-text">GradForge</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="internships.html"><i class="fas fa-briefcase"></i> Internships</a></li>
+          <li><a href="consultation.html"><i class="fas fa-comments"></i> Consultation</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="pricing.html"><i class="fas fa-credit-card"></i> Pricing</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-ghost" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+</header>
+
+    <main>
+        <section class="profile-header">
+            <div class="container">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" alt="Profile">
+                        <button class="edit-avatar"><i class="fas fa-camera"></i></button>
+                    </div>
+                    <div class="profile-details">
+                        <h1><i class="fas fa-user"></i> Alex Johnson</h1>
+                        <p class="profile-title">Computer Science Student | Full Stack Developer</p>
+                        <div class="profile-links">
+                            <a href="#" class="profile-link">
+                                <button class="btn">
+                                <i class="fab fa-linkedin"></i>
+                                LinkedIn
+                                </button>
+                            </a>
+                            <a href="#" class="profile-link">
+                                <button class="btn">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                                </button>
+                            </a>
+                            <a href="#" class="profile-link">
+                                <button class="btn">
+                                <i class="fas fa-file-pdf"></i>
+                                Resume
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="btn edit-profile-btn">
+                        <i class="fas fa-edit"></i>
+                        Edit Profile
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-content">
+            <div class="container">
+                <div class="profile-tabs">
+                    <button class="btn active" onclick="showTab('saved',event)">
+                        <i class="fas fa-bookmark"></i> Saved Internships
+                    </button>
+                    <button class="btn" onclick="showTab('projects',event)">
+                        <i class="fas fa-code"></i> My Projects
+                    </button>
+                    <button class="btn" onclick="showTab('sessions',event)">
+                        <i class="fas fa-comments"></i> Mentor Sessions
+                    </button>
+                    <button class="btn" onclick="showTab('activity',event)">
+                        <i class="fas fa-chart-line"></i> Activity
+                    </button>
+                </div>
+
+                <div id="savedTab" class="tab-content active">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bookmark"></i> Saved Internships</h2>
+                        <span class="count">2 saved</span>
+                    </div>
+                    <div id="savedInternships" class="internships-grid">
+                        <!-- Saved internships will be loaded here -->
+                    </div>
+                </div>
+
+                <div id="projectsTab" class="tab-content">
+                    <div class="section-header">
+                        <h2><i class="fas fa-code"></i> My Projects</h2>
+                        <button class="btn" onclick="showAddProjectModal()">
+                            <i class="fas fa-plus"></i>
+                            Add Project
+                        </button>
+                    </div>
+                    <div id="projectsList" class="projects-container">
+                        <!-- Projects will be loaded here -->
+                    </div>
+                </div>
+
+                <div id="sessionsTab" class="tab-content">
+                    <div class="section-header">
+                        <h2><i class="fas fa-comments"></i> Mentor Sessions</h2>
+                        <div class="session-stats">
+                            <div class="stat">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Upcoming</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sessionsList" class="sessions-list">
+                        <!-- Sessions will be loaded here -->
+                    </div>
+                </div>
+
+                <div id="activityTab" class="tab-content">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-line"></i> Recent Activity</h2>
+                    </div>
+                    <div id="activityList" class="activity-list">
+                        <!-- Activity will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Project Modal -->
+    <div id="addProjectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Add New Project</h2>
+            </div>
+            <div class="modal-body">
+                <form id="addProjectForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-heading"></i> Project Title</label>
+                        <input class="modal-input" type="text" name="title"  required placeholder="Enter project title">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-align-left"></i> Description</label>
+                        <textarea class="modal-input" name="description" required placeholder="Describe your project..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tools"></i> Tech Stack</label>
+                        <input class="modal-input" type="text" name="techStack" placeholder="React, Node.js, MongoDB...">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tasks"></i> Project Status</label>
+                        <select class="modal-input" name="status" required>
+                            <option value="planning">Planning</option>
+                            <option value="progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fab fa-github"></i> GitHub Repository</label>
+                        <input class="modal-input" type="url" name="githubUrl" placeholder="https://github.com/username/repo">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-external-link-alt"></i> Live Demo URL</label>
+                        <input class="modal-input" type="url" name="liveUrl" placeholder="https://yourproject.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-image"></i> Demo Media</label>
+                        <input type="file" name="media" id="projectMedia" accept="image/*,video/*" />
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> Add Project
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-rocket"></i>
+                    <span>GradForge</span>
+                </div>
+                <p>© <span id="year"></span> GradForge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
+</body>
+</html>

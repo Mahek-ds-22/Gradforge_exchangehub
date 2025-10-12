@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GradForge – Micro Consultation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="GradForge Home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4zM7 8l5 3 5-3"/>
+        </svg>
+        <span class="brand-text">GradForge</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="internships.html"><i class="fas fa-briefcase"></i> Internships</a></li>
+          <li><a href="consultation.html"><i class="fas fa-comments"></i> Consultation</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="pricing.html"><i class="fas fa-credit-card"></i> Pricing</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-ghost" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Connect with Expert Mentors</h1>
+        <p>Get personalized guidance from industry professionals.<br>
+           Book instant sessions or request consultations tailored to your career goals.</p>
+        <br>
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-bar" placeholder="Search mentors by expertise, company, or skills..." id="mentorSearch">
+        </div>
+      </div>
+      
+      <div class="mentor-marquee">
+        <div class="marquee-track" id="mentorMarquee">
+          <!-- Mentor avatars will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Mentors Section -->
+  <section class="mentors-section">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fas fa-star"></i> Featured Mentors</h2>
+        <p>Connect with top-rated professionals across various domains</p>
+      </div>
+      
+      <div class="mentors-grid" id="mentorsGrid">
+        <!-- Mentor cards will be populated by JavaScript -->
+      </div>
+      
+      <div class="text-center">
+        <button class="btn" id="showAllMentors">
+          <i class="fas fa-users"></i> Show All Mentors
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Become a Mentor Section -->
+  <section class="become-mentor-section">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fas fa-graduation-cap"></i> Become a Mentor</h2>
+        <p>Share your expertise and earn by helping others grow in their careers</p>
+      </div>
+      
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+          <h3>Create Profile</h3>
+          <p>Sign up and complete your professional profile with experience and expertise details</p>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+          <h3>Get Verified</h3>
+          <p>Our team reviews your credentials and verifies your professional background</p>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h3>Set Availability</h3>
+          <p>Configure your schedule, pricing, and consultation preferences</p>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Start Mentoring</h3>
+          <p>Begin accepting bookings and helping mentees achieve their goals</p>
+        </div>
+      </div>
+      
+      <div class="text-center" style="margin-top: 3rem;">
+        <button class="btn" id="becomeMentorBtn">
+          <i class="fas fa-arrow-right"></i> Apply to be a Mentor
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fas fa-comments"></i> What Our Users Say</h2>
+        <p>Real feedback from mentees and mentors on our platform</p>
+      </div>
+      
+      <div class="reviews-marquee">
+        <div class="reviews-track" id="reviewsTrack">
+          <!-- Reviews will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+        <p>Everything you need to know about our micro consultation service</p>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            How do micro-consultations work?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Micro-consultations are focused 30-60 minute sessions with industry experts. You can book instantly or request specific time slots. Each session is tailored to your specific questions and career goals.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            What's the difference between instant book and request to book?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Instant book allows immediate confirmation for available slots, while request to book requires mentor approval. Premium mentors may use request-to-book to ensure session quality and preparation time.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            How much do consultation sessions cost?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Pricing varies by mentor expertise and session duration. Sessions typically range from ₹199-₹999. You can filter mentors by price range and see exact costs before booking.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I reschedule or cancel my session?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, you can reschedule or cancel up to 2 hours before the session. Cancellations within 2 hours may incur a fee. Mentors can also reschedule if needed with advance notice.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I prepare for a consultation session?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Before each session, you'll fill out a pre-session form with 2-3 key questions or topics. This helps mentors prepare and ensures you get maximum value from your time together.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3><i class="fas fa-cogs"></i> Our Services</h3>
+          <a href="consultation.html"><i class="fas fa-comments"></i> Consultation</a>
+          <a href="internships.html"><i class="fas fa-briefcase"></i> Internships</a>
+          <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+          <a href="projects.html"><i class="fas fa-code"></i> Projects</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3><i class="fas fa-envelope"></i> Connect With Us</h3>
+          <a href="mailto:hello@gradforge.com"><i class="fas fa-envelope"></i> hello@gradforge.com</a>
+          <a href="tel:+918888888888"><i class="fas fa-phone"></i> +91 88888 88888</a>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> GradForge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Mentor Application Modal -->
+  <div class="modal-overlay" id="mentorApplicationModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2><i class="fas fa-graduation-cap"></i> Mentor Application</h2>
+        <button class="modal-close" id="closeMentorModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <form class="mentor-application-form" id="mentorApplicationForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="mentorName">
+              <i class="fas fa-user"></i> Full Name *
+            </label>
+            <input type="text" id="mentorName" name="name" required 
+                   placeholder="Enter your full name">
+          </div>
+          
+          <div class="form-group">
+            <label for="mentorPhone">
+              <i class="fas fa-phone"></i> Phone Number *
+            </label>
+            <input type="tel" id="mentorPhone" name="phone" required 
+                   placeholder="+91 XXXXX XXXXX">
+          </div>
+          
+          <div class="form-group">
+            <label for="mentorEmail">
+              <i class="fas fa-envelope"></i> Email Address *
+            </label>
+            <input type="email" id="mentorEmail" name="email" required 
+                   placeholder="your.email@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="mentorExpertise">
+              <i class="fas fa-star"></i> Field of Expertise *
+            </label>
+            <select id="mentorExpertise" name="expertise" required>
+              <option value="">Select your expertise</option>
+              <option value="software-engineering">Software Engineering</option>
+              <option value="data-science">Data Science & Analytics</option>
+              <option value="product-management">Product Management</option>
+              <option value="ui-ux-design">UI/UX Design</option>
+              <option value="digital-marketing">Digital Marketing</option>
+              <option value="business-strategy">Business Strategy</option>
+              <option value="finance">Finance & Investment</option>
+              <option value="hr-recruitment">HR & Recruitment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="mentorRate">
+              <i class="fas fa-rupee-sign"></i> Hourly Rate (₹) *
+            </label>
+            <input type="number" id="mentorRate" name="rate" required 
+                   placeholder="299" min="199" max="2000">
+          </div>
+          
+          <div class="form-group">
+            <label for="mentorSchedule">
+              <i class="fas fa-calendar"></i> Preferred Schedule *
+            </label>
+            <select id="mentorSchedule" name="schedule" required>
+              <option value="">Select your availability</option>
+              <option value="weekday-morning">Weekdays (9 AM - 12 PM)</option>
+              <option value="weekday-afternoon">Weekdays (1 PM - 5 PM)</option>
+              <option value="weekday-evening">Weekdays (6 PM - 9 PM)</option>
+              <option value="weekend-morning">Weekends (9 AM - 12 PM)</option>
+              <option value="weekend-afternoon">Weekends (1 PM - 5 PM)</option>
+              <option value="weekend-evening">Weekends (6 PM - 9 PM)</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="mentorAvailability">
+            <i class="fas fa-clock"></i> Availability Status
+          </label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="availability" value="immediately" checked>
+              <span class="radio-custom"></span>
+              Available Immediately
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="availability" value="within-week">
+              <span class="radio-custom"></span>
+              Available Within a Week
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="availability" value="within-month">
+              <span class="radio-custom"></span>
+              Available Within a Month
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="mentorResume">
+            <i class="fas fa-file-pdf"></i> Resume Upload *
+          </label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="mentorResume" name="resume" accept=".pdf,.doc,.docx" required>
+            <label for="mentorResume" class="file-upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Choose Resume File</span>
+              <small>PDF, DOC, DOCX (Max 5MB)</small>
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="mentorLinkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn Profile *
+          </label>
+          <input type="url" id="mentorLinkedin" name="linkedin" required 
+                 placeholder="https://linkedin.com/in/yourprofile">
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="mentorPortfolio">
+            <i class="fas fa-globe"></i> Portfolio/Website (Optional)
+          </label>
+          <input type="url" id="mentorPortfolio" name="portfolio" 
+                 placeholder="https://yourwebsite.com">
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" id="cancelApplication">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button type="submit" class="btn">
+            <i class="fas fa-paper-plane"></i> Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Mentor data for marquee
+    const mentorData = [
+      { name: "Sarah Chen", role: "Google PM", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b588?w=150&h=150&fit=crop&crop=face" },
+      { name: "Raj Patel", role: "Meta Engineer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" },
+      { name: "Emily Davis", role: "Design Lead", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" },
+      { name: "Alex Kim", role: "Startup Founder", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" },
+      { name: "Maya Singh", role: "Data Scientist", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face" },
+      { name: "David Wilson", role: "ML Engineer", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" },
+      { name: "Lisa Wang", role: "UX Designer", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face" },
+      { name: "Mark Johnson", role: "DevOps Lead", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" },
+      { name: "Anna Kim", role: "Product Designer", avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face" },
+      { name: "James Wright", role: "Tech Lead", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face" }
+    ];
+
+    // Populate mentor marquee
+    function populateMentorMarquee() {
+      const marqueeTrack = document.getElementById('mentorMarquee');
+      
+      // Create enough content to fill the container and duplicate for seamless loop
+      const duplicatedMentors = [...mentorData, ...mentorData, ...mentorData, ...mentorData];
+      
+      // Create first set of rows
+      const firstSet = createMentorRows(duplicatedMentors);
+      
+      // Create duplicate set for seamless scrolling
+      const secondSet = createMentorRows(duplicatedMentors);
+      
+      // Append both sets to track
+      firstSet.forEach(row => marqueeTrack.appendChild(row));
+      secondSet.forEach(row => marqueeTrack.appendChild(row));
+    }
+
+    // Helper function to create mentor rows
+    function createMentorRows(mentors) {
+      const rows = [];
+      
+      for (let i = 0; i < mentors.length; i += 2) {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'marquee-row';
+        
+        // Add 2 mentors per row
+        for (let j = 0; j < 2 && (i + j) < mentors.length; j++) {
+          const mentor = mentors[i + j];
+          const mentorDiv = document.createElement('div');
+          mentorDiv.className = 'mentor-item';
+          mentorDiv.innerHTML = `
+            <img src="${mentor.avatar}" alt="${mentor.name}" class="mentor-avatar" loading="lazy">
+            <div class="mentor-info">
+              <div class="mentor-name">${mentor.name}</div>
+              <div class="mentor-role">${mentor.role}</div>
+            </div>
+          `;
+          rowDiv.appendChild(mentorDiv);
+        }
+        
+        rows.push(rowDiv);
+      }
+      
+      return rows;
+    }
+
+    // Search functionality
+    function initializeSearch() {
+      const searchInput = document.getElementById('mentorSearch');
+      const mentorsGrid = document.getElementById('mentorsGrid');
+      
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const mentorCards = mentorsGrid.querySelectorAll('.mentor-card');
+        
+        mentorCards.forEach(card => {
+          const name = card.querySelector('h3').textContent.toLowerCase();
+          const expertise = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+          
+          if (name.includes(searchTerm) || expertise.includes(searchTerm)) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.4s ease-out';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      populateMentorMarquee();
+      initializeSearch();
+    });
+  </script>
+</body>
+</html>
