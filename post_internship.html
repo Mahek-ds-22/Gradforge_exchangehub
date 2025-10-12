@@ -13,8 +13,9 @@
       color: #333;
       line-height: 1.6;
     }
+   
     /* ========== Header ========== */
-    header {
+    /* header {
       
       background: linear-gradient(90deg, #6a11cb, #f6f0ff);
       padding: 15px 25px;
@@ -30,7 +31,198 @@
     nav a {
       margin: 0 12px; text-decoration: none; color: #fff; font-weight: 500;
     }
-    nav a:hover { color: #ffd700; }
+    nav a:hover { color: #ffd700; } */
+    /* Header */
+.site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.site-header:hover {
+  box-shadow: var(--glow);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  color: var(--purple-primary);
+  text-decoration: none;
+  font-weight: bold;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.brand:hover {
+  filter: drop-shadow(0 0 8px rgba(78, 42, 132, 0.3));
+  transform: scale(1.05);
+}
+
+.brand-text {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--purple-primary), var(--purple-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  fill: var(--purple-primary);
+}
+
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.main-nav a:hover::before {
+  left: 100%;
+}
+
+.main-nav a:hover {
+  background: var(--purple-bg);
+  color: var(--purple-primary);
+  box-shadow: 0 4px 15px rgba(78, 42, 132, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, var(--purple-light), var(--purple-primary));
+  transform: translateY(-3px);
+  box-shadow: var(--glow-strong);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--purple-primary);
+  border: 2px solid var(--purple-primary);
+  box-shadow: inset 0 0 0 0 var(--purple-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--purple-primary);
+  color: var(--white);
+  box-shadow: inset 0 0 0 50px var(--purple-primary), var(--glow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--purple-primary);
+  border: 2px solid var(--purple-primary);
+  position: relative;
+}
+
+.btn-ghost::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--purple-bg);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-ghost:hover::after {
+  width: 100%;
+}
+
+.btn-ghost:hover {
+  color: var(--purple-primary);
+  box-shadow: var(--glow);
+}
+
+
+   
+    
     /* ========== Form Section ========== */
     .main {
       max-width: 900px; margin: 30px auto; padding: 25px;
@@ -85,8 +277,31 @@
   </style>
 </head>
 <body>
-  <header>
-    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+
+  <!-- Navbar -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="GradForge Home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4zM7 8l5 3 5-3"/>
+        </svg>
+        <span class="brand-text">GradForge</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="internships.html"><i class="fas fa-briefcase"></i> Internships</a></li>
+          <li><a href="consultation.html"><i class="fas fa-comments"></i> Consultation</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="pricing.html"><i class="fas fa-credit-card"></i> Pricing</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-ghost" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+  </header>
+
+  <!-- <header>
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"> 
           <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4zM7 8l5 3 5-3"></path>
         </svg>
     <h2>Internship Exchange Hub</h2>
@@ -97,7 +312,7 @@
       <a href="#">Referrals</a>
       <a href="#">About</a>
     </nav>
-  </header>
+  </header> -->
 
   <!-- Post Internship Form -->
   <main class="main">
